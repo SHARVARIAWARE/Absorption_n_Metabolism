@@ -41,7 +41,7 @@ def load_models():
             "(Absorption) Caco-2": joblib.load("absorption_hybrid_Caco2_Wang.pkl"),
             
             "(Metabolism) CYP2D6 Substrate": joblib.load("Metabolism_Hybrid_CYP2D6.pkl"),
-            
+           
         }
     except FileNotFoundError as e:
         st.error(f"❌ Model file not found: {e}")
@@ -118,7 +118,7 @@ if uploaded_file:
                     df[name] = model.predict(df[descriptor_columns])
 
             # Clean and re-map values
-            df["(Metabolism) CYP3A4"] = df["(Metabolism) CYP3A4"].map({0: "Non-Metabolic (0)", 1: "Metabolic (1)"})
+            df["(Metabolism) CYP2D6 Substrate"] = df["(Metabolism) CYP2D6 Substrate"].map({0: "Non-Metabolic (0)", 1: "Metabolic (1)"})
             #df["(Toxicity) NR-AR"] = df["(Toxicity) NR-AR"].map({0: "Non-Toxic (0)", 1: "Toxic (1)"})
 
             df.drop(columns=descriptor_columns, inplace=True)
