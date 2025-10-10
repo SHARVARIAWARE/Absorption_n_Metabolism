@@ -6,4 +6,4 @@ joblib
 openpyxl
 plotly
 lightgbm
-rdkit.pypi
+rdkit-pypi
