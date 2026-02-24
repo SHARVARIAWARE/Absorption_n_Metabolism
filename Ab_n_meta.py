@@ -39,8 +39,9 @@ def load_models():
         return {
             "Activity": joblib.load("hybrid_model.pkl"),
             "(Absorption) Caco-2": joblib.load("absorption_hybrid_Caco2_Wang.pkl"),
-            
+            "(Distribution) PPBR": joblib.load("Distribution_hybrid_PPBR.pkl"),
             "(Metabolism) CYP2D6 Substrate": joblib.load("Metabolism_Hybrid_CYP2D6.pkl"),
+            "(Excretion) HalfLife": joblib.load("Excretion_hybrid_HalfLife.pkl")
            
         }
     except FileNotFoundError as e:
@@ -186,3 +187,4 @@ if uploaded_file:
         st.error(f"❌ An error occurred: {e}")
 else:
     st.info("📤 Please upload a `.xlsx` file with a column named `smiles` to begin.")
+
